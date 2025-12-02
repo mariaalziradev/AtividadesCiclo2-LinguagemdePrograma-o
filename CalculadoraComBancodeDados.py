@@ -1,8 +1,6 @@
 import sqlite3
 from datetime import datetime
 
-# ---------------------- BANCO DE DADOS ----------------------
-
 con = sqlite3.connect("imc.db")
 cur = con.cursor()
 
@@ -20,7 +18,6 @@ CREATE TABLE IF NOT EXISTS pacientes (
 """)
 con.commit()
 
-# ---------------------- FUNÇÕES ----------------------
 
 def calcular_imc(peso, altura):
     altura_m = altura / 100
@@ -56,10 +53,9 @@ def listar_registros():
     for r in registros:
         print(f"ID: {r[0]} | Nome: {r[1]} | IMC: {r[5]:.2f} | Classificação: {r[6]} | Data: {r[7]}")
 
-# ---------------------- PROGRAMA PRINCIPAL ----------------------
 
 while True:
-    print("\n--- CALCULADORA DE IMC ---")
+    print("\n CALCULADORA DE IMC ")
     print("1 - Calcular IMC")
     print("2 - Ver histórico")
     print("3 - Sair")
@@ -90,3 +86,4 @@ while True:
 
     else:
         print("Opção inválida!")
+
